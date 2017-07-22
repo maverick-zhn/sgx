@@ -1,8 +1,10 @@
 # SGX
 
-
+```
 cat /proc/cpuinfo
+```
 
+```
 processor	: 7
 vendor_id	: GenuineIntel
 cpu family	: 6
@@ -29,12 +31,16 @@ clflush size	: 64
 cache_alignment	: 64
 address sizes	: 39 bits physical, 48 bits virtual
 power management:
+```
 
+```
 servio@melon:~$ free -m
               total        used        free      shared  buff/cache   available
 Mem:          64209         375       54959         192        8874       62812
 Swap:         65350           0       65350
+```
 
+```
 servio@melon:~$ cat /proc/meminfo
 MemTotal:       65750328 kB
 MemFree:        55834208 kB
@@ -84,4 +90,4 @@ Hugepagesize:       2048 kB
 DirectMap4k:      236120 kB
 DirectMap2M:     8972288 kB
 DirectMap1G:    57671680 kB
-
+```
