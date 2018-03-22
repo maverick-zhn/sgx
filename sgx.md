@@ -1,5 +1,32 @@
 # SGX
 
+* https://software.intel.com/en-us/sgx
+* https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx
+* https://github.com/ayeks/SGX-hardware
+* https://en.wikipedia.org/wiki/Software_Guard_Extensions
+* https://software.intel.com/en-us/sgx-sdk
+* https://github.com/01org/linux-sgx-driver/blob/master/isgx_util.c
+* https://01.org/intel-softwareguard-extensions
+* https://github.com/jethrogb/sgx-utils/blob/master/linux-driver/clear.cpp
+* https://software.intel.com/en-us/blogs/2016/05/30/usage-of-simulation-mode-in-sgx-enhanced-application
+* https://stackoverflow.com/questions/41444498/intel-sgx-simulator-for-linux
+* https://software.intel.com/en-us/sgx/academic-research
+* https://software.intel.com/en-us/blogs/2013/09/26/protecting-application-secrets-with-intel-sgx
+* [OpenSGX: An Open Platform for SGX Research](https://goo.gl/B3Nq5s)
+* [Graphene-SGX: A Practical Library OS for Unmodified Applications on SGX](https://goo.gl/5CG692)
+* [Obliviate](https://goo.gl/LLNJAJ)
+* [SGX Secure Enclaves in Practice](https://goo.gl/gE9gtf)
+* [**SGX Tutorial**](https://github.com/sslab-gatech/sgx-tutorial-ccs17)
+* [Iron: Functional Encryption using Intel SGX](https://goo.gl/FkKJs5)
+* [SafeBricks: Shielding Network Functions in the Cloud](https://goo.gl/5ErjRe)
+
+
+## Attacks
+* [Meltdown and Spectre](https://meltdownattack.com/)
+
+
+# SGX
+
 ```
 cat /proc/cpuinfo
 ```
