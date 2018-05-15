@@ -2,6 +2,7 @@
 ## Setting up SGX enabled Server
 
 ## Installing git
+```
 sudo apt-get update
 sudo apt-get install git-core
 
@@ -9,11 +10,12 @@ git config --global user.name "Servio Palacios"
 git config --global user.email "servio@palacios.com"
 
 sudo apt-get install curl
+```
 
 ## NVM
 https://github.com/creationix/nvm
 
-
+```
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 
 spalacio@Qatar01:~/Desktop/repos/sgx$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -47,7 +49,7 @@ Computing checksum with sha256sum
 Checksums matched!
 Now using node v10.1.0 (npm v5.6.0)
 Creating default alias: default -> node (-> v10.1.0)
-
+```
 
 ## SGX
 
@@ -57,8 +59,9 @@ Creating default alias: default -> node (-> v10.1.0)
 To check if matching kernel headers are installed: 
 ```
 dpkg-query -s linux-headers-$(uname -r)
-```
+````
 
+```
 spalacio@Qatar01:~$ sudo apt-get install linux-headers-$(uname -r)
 Reading package lists... Done
 Building dependency tree       
@@ -66,7 +69,7 @@ Reading state information... Done
 linux-headers-4.15.0-20-generic is already the newest version (4.15.0-20.21).
 linux-headers-4.15.0-20-generic set to manually installed.
 0 upgraded, 0 newly installed, 0 to remove and 10 not upgraded.
-
+```
 
 * References 
 https://github.com/intel/linux-sgx-driver/tree/sgx2
@@ -167,12 +170,7 @@ spalacio@Qatar01:~/sgx/linux-sgx-driver$ sudo /sbin/modprobe isgx
 ```
 
 
-
-
-
-
-
-
+```
 spalacio@Qatar01:~$ sudo apt-get install build-essential ocaml automake autoconf libtool wget python
 [sudo] password for spalacio: 
 Reading package lists... Done
@@ -532,9 +530,9 @@ Setting up ocaml (4.05.0-10ubuntu1) ...
 Setting up camlp4 (4.05+1-2) ...
 Setting up libfindlib-ocaml-dev (1.7.3-2) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
+```
 
-
-
+```
 spalacio@Qatar01:~$ sudo apt-get install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev
 Reading package lists... Done
 Building dependency tree       
@@ -594,7 +592,7 @@ Setting up zlib1g-dev:amd64 (1:1.2.11.dfsg-0ubuntu2) ...
 Setting up protobuf-compiler (3.0.0-9.1ubuntu1) ...
 Setting up libprotobuf-dev:amd64 (3.0.0-9.1ubuntu1) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
-
+```
 
 ## Build the Intel(R) SGX SDK and Intel(R) SGX PSW
 
