@@ -725,7 +725,18 @@ spalacio@Qatar01:~/sgx/linux-sgx/linux/installer/bin$ source /home/spalacio/sgx/
 ```
 
 ### Tests
+
+#### First
 ```
+spalacio@Qatar01:~/sgx/linux-sgx/linux/installer/bin/sgxsdk$ vi environment
+spalacio@Qatar01:~/sgx/linux-sgx/linux/installer/bin/sgxsdk$ source environment
+```
+
+#### Second
+```
+/home/spalacio/sgx/linux-sgx/linux/installer/bin/sgxsdk/SampleCode/LocalAttestation
+➜  LocalAttestation git:(master) ✗ make clean
+➜  LocalAttestation git:(master) ✗ make SGX_MODE=SIM
 spalacio@Qatar01:~/sgx/linux-sgx$ cd SampleCode/LocalAttestation
 spalacio@Qatar01:~/sgx/linux-sgx/SampleCode/LocalAttestation$ make SGX_MODE=SIM
 GEN  =>  LocalAttestationCode/LocalAttestationCode_t.c
