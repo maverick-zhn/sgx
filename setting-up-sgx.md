@@ -862,4 +862,84 @@ Hit a key....
 ```
 
 
-
+```
+➜  LocalAttestation git:(master) ✗ make clean
+➜  LocalAttestation git:(master) ✗ make SGX_MODE=SIM
+GEN  =>  LocalAttestationCode/LocalAttestationCode_t.c
+CC   <=  LocalAttestationCode/LocalAttestationCode_t.c
+CC   <= LocalAttestationCode/EnclaveMessageExchange.cpp
+GEN  =>  libLocalAttestation_Trusted.a
+CC   <=  Untrusted_LocalAttestation/UntrustedEnclaveMessageExchange.cpp
+GEN  =>  libLocalAttestation_unTrusted.a
+CC   <=  Enclave1/Enclave1_t.c                                                                                                 [0/1808]
+CXX  <=  Enclave1/Utility_E1.cpp
+CXX  <=  Enclave1/Enclave1.cpp
+LINK =>  Enclave1.so
+<EnclaveConfiguration>
+    <ProdID>0</ProdID>
+    <ISVSVN>0</ISVSVN>
+    <StackMaxSize>0x40000</StackMaxSize>
+    <HeapMaxSize>0x100000</HeapMaxSize>
+    <TCSNum>1</TCSNum>
+    <TCSPolicy>1</TCSPolicy>
+    <!-- Recommend changing 'DisableDebug' to 1 to make the enclave undebuggable for enclave release -->
+    <DisableDebug>0</DisableDebug>
+    <MiscSelect>0</MiscSelect>
+    <MiscMask>0xFFFFFFFF</MiscMask>
+</EnclaveConfiguration>
+tcs_num 1, tcs_max_num 1, tcs_min_pool 1
+The required memory is 2019328B.
+Succeed.
+SIGN =>  libenclave1.so
+GEN  =>  Enclave2/Enclave2_t.c
+CC   <=  Enclave2/Enclave2_t.c
+CXX  <=  Enclave2/Enclave2.cpp
+CXX  <=  Enclave2/Utility_E2.cpp
+LINK =>  Enclave2.so
+<EnclaveConfiguration>
+    <ProdID>0</ProdID>
+    <ISVSVN>0</ISVSVN>
+    <StackMaxSize>0x40000</StackMaxSize>
+    <HeapMaxSize>0x100000</HeapMaxSize>
+    <TCSNum>1</TCSNum>
+    <TCSPolicy>1</TCSPolicy>
+    <!-- Recommend changing 'DisableDebug' to 1 to make the enclave undebuggable for enclave release -->
+    <DisableDebug>0</DisableDebug>
+    <MiscSelect>0</MiscSelect>
+    <MiscMask>0xFFFFFFFF</MiscMask>
+</EnclaveConfiguration>
+tcs_num 1, tcs_max_num 1, tcs_min_pool 1
+The required memory is 2019328B.
+Succeed.
+SIGN =>  libenclave2.so
+GEN  =>  Enclave3/Enclave3_t.c
+CC   <=  Enclave3/Enclave3_t.c
+CXX  <=  Enclave3/Enclave3.cpp
+CXX  <=  Enclave3/Utility_E3.cpp
+LINK =>  Enclave3.so
+<EnclaveConfiguration>
+    <ProdID>0</ProdID>
+    <ISVSVN>0</ISVSVN>
+    <StackMaxSize>0x40000</StackMaxSize>
+    <HeapMaxSize>0x100000</HeapMaxSize>
+    <TCSNum>1</TCSNum>
+    <TCSPolicy>1</TCSPolicy>
+    <!-- Recommend changing 'DisableDebug' to 1 to make the enclave undebuggable for enclave release -->
+    <DisableDebug>0</DisableDebug>
+    <MiscSelect>0</MiscSelect>
+    <MiscMask>0xFFFFFFFF</MiscMask>
+</EnclaveConfiguration>
+tcs_num 1, tcs_max_num 1, tcs_min_pool 1
+The required memory is 2019328B.
+Succeed.
+SIGN =>  libenclave3.so
+GEN  =>  Enclave1/Enclave1_u.c
+CC   <=  Enclave1/Enclave1_u.c
+GEN  =>  Enclave2/Enclave2_u.c
+CC   <=  Enclave2/Enclave2_u.c
+GEN  =>  Enclave3/Enclave3_u.c
+CC   <=  Enclave3/Enclave3_u.c
+CXX  <=  App/App.cpp
+LINK =>  app
+The project has been built in debug simulation mode.
+```
