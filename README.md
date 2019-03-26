@@ -17,7 +17,7 @@ SGX related papers, sources, test cases, and architecture
 https://github.com/ayeks/SGX-hardware/issues/32
 https://01.org/intel-software-guard-extensions
 
-##Provisioning and attestation services white paper
+## Provisioning and attestation services white paper
 * https://goo.gl/HYy5Sy
 
 ## Hardening authentication tokens in browsers

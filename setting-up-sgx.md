@@ -732,6 +732,10 @@ spalacio@Qatar01:~/sgx/linux-sgx/linux/installer/bin/sgxsdk$ vi environment
 spalacio@Qatar01:~/sgx/linux-sgx/linux/installer/bin/sgxsdk$ source environment
 ```
 
+```
+source ~/sgx/linux-sgx/linux/installer/bin/sgxsdk/environment
+```
+
 #### Second
 ```
 /home/spalacio/sgx/linux-sgx/linux/installer/bin/sgxsdk/SampleCode/LocalAttestation
