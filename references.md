@@ -38,3 +38,4 @@ https://github.com/ayeks/SGX-hardware
 
 ## Setting up SGX on a Windows Computer
 * [Windows SDK](https://goo.gl/HGk2fK)
+* [Setting up an Intel® Software Guard Extensions Project](https://software.intel.com/en-us/sgx-sdk-dev-reference-setting-up-an-intel-software-guard-extensions-project)
