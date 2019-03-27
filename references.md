@@ -36,4 +36,5 @@ https://github.com/ayeks/SGX-hardware
 ## Other
 * https://github.com/intel/linux-sgx/blob/master/sdk/edger8r/linux/Makefile
 
-
+## Setting up SGX on a Windows Computer
+* [Windows SDK](https://goo.gl/HGk2fK)
