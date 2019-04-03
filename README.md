@@ -29,3 +29,7 @@ https://01.org/intel-software-guard-extensions
 ## Sample source code
 * https://software.intel.com/en-us/articles/code-sample-intel-software-guard-extensions-remote-attestation-end-to-end-example
 
+## Laptop running with Visual Studio 2015
+* Need to follow best practices
+* Need to design trusted and untrusted part of the app
+
