@@ -1,24 +1,8 @@
+
+```
 PS C:\maverick\certificates> ls
 PS C:\maverick\certificates> set RANDFILE:\maverick\certificates\.rnd
 PS C:\maverick\certificates> pwd
-
-Path
-----
-C:\maverick\certificates
-
-
-PS C:\maverick\certificates> cd ..
-PS C:\maverick> ls
-
-
-    Directory: C:\maverick
-
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d-----        4/15/2019  10:48 AM                certificates
-d-----        4/15/2019  10:40 AM                OpenSSL-Win64
-
 
 PS C:\maverick> cd .\OpenSSL-Win64\
 PS C:\maverick\OpenSSL-Win64> ls
@@ -44,9 +28,7 @@ d-----        4/15/2019  10:40 AM                lib
 -a----        4/15/2019  10:40 AM          22395 unins000.dat
 -a----        4/15/2019  10:39 AM         730789 unins000.exe
 
-
 PS C:\maverick\OpenSSL-Win64> cd ..
-PS C:\maverick> ls
 
 
     Directory: C:\maverick
@@ -57,7 +39,10 @@ Mode                LastWriteTime         Length Name
 d-----        4/15/2019  10:48 AM                certificates
 d-----        4/15/2019  10:40 AM                OpenSSL-Win64
 
+```
 
+## Generating a Certificate
+```
 PS C:\maverick> cd certificates
 PS C:\maverick\certificates> C:\maverick\OpenSSL-Win64\bin\openssl.exe
 OpenSSL> genrsa -out client.key 2048
@@ -122,3 +107,4 @@ error in verify
 OpenSSL> verify -x509_strict -purpose sslclient -CAfile client.crt client.crt
 client.crt: OK
 OpenSSL>
+```
