@@ -33,3 +33,17 @@ https://01.org/intel-software-guard-extensions
 * Need to follow best practices
 * Need to design trusted and untrusted part of the app
 
+## Issues running Visual Studio Sample
+
+When getting 
+https://stackoverflow.com/questions/41944179/error-loading-enclave-couldnt-open-file-with-createfile
+
+Ensure that you have the following in the Visual Studio configuration for both projects:
+
+<p align="center">
+  <img height="200" src="https://raw.githubusercontent.com/maverick-zhn/sgx/master/assets/images/05_vs_issues_error_shown.png">
+</p>
+
+<p align="center">
+  <img height="200" src="https://raw.githubusercontent.com/maverick-zhn/sgx/master/assets/images/05_vs_issues_fix_debug.png">
+</p>
