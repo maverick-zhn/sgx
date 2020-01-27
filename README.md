@@ -45,5 +45,5 @@ Ensure that you have the following in the Visual Studio configuration for both p
 </p>
 
 <p align="center">
-  <img height="300" src="https://raw.githubusercontent.com/maverick-zhn/sgx/master/assets/images/05_vs_issues_fix_debug.png">
+  <img height="300" src="https://raw.githubusercontent.com/maverick-zhn/sgx/master/assets/images/05_vs_issues_fix_debug.PNG">
 </p>
