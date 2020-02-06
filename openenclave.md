@@ -596,3 +596,134 @@ Installing collected packages: PyYAML, six, pycparser, cffi, cryptography, Marku
     Not uninstalling requests at /usr/lib/python3/dist-packages, outside environment /usr
 Successfully installed MarkupSafe-1.1.1 PyYAML-5.3 ansible-2.8.2 certifi-2019.11.28 cffi-1.13.2 cryptography-2.8 idna-2.8 jinja2-2.11.1 ntlm-auth-1.4.0 pycparser-2.19 pywinrm-0.2.1 requests-2.22.0 requests-ntlm-1.1.0 six-1.14.0 urllib3-1.25.8 xmltodict-0.12.0
 ```
+
+###Error
+```
+➜  openenclave git:(master) ✗ sudo ansible-playbook scripts/ansible/oe-contributors-setup-sgx1.yml
+ [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+
+PLAY [localhost] **************************************************************************************************************************************************************************************************
+
+TASK [Gathering Facts] ********************************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Gather Ansible facts] *******************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [include_role : linux/common] ********************************************************************************************************************************************************************************
+
+TASK [linux/common : Install apt-transport-https APT package] *****************************************************************************************************************************************************
+ [WARNING]: Could not find aptitude. Using apt-get instead
+
+ok: [localhost]
+
+TASK [linux/common : Add APT repository key] **********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/common : Add APT repository] **************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [include_role : linux/common] ********************************************************************************************************************************************************************************
+
+TASK [linux/common : Install apt-transport-https APT package] *****************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/common : Add APT repository key] **********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/common : Add APT repository] **************************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Include distribution vars] **************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Install all the Open Enclave prerequisites APT packages for development] ****************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Install esy] ****************************************************************************************************************************************************************************
+included: /home/spalacio/repos/openenclave/scripts/ansible/roles/linux/openenclave/tasks/esy-setup.yml for localhost
+
+TASK [linux/openenclave : Prepare esy installation] ***************************************************************************************************************************************************************
+changed: [localhost] => (item=/tmp/esy-release)
+changed: [localhost] => (item=/tmp/esy-solve-cudf-release)
+ok: [localhost] => (item=/usr/local/lib/esy/bin)
+ok: [localhost] => (item=/usr/local/lib/esy/lib/node_modules/esy-solve-cudf/)
+
+TASK [linux/openenclave : Download esy] ***************************************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [linux/openenclave : Download esy_solve_cudf] ****************************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [linux/openenclave : Unarchive esy] **************************************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [linux/openenclave : Unarchive esy_solve_cudf] ***************************************************************************************************************************************************************
+changed: [localhost]
+
+TASK [linux/openenclave : Copy esy package.json] ******************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Copy esy esyInstallRelease.js] **********************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Copy esy default] ***********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Copy esy_solve_cudfy package.json] ******************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Copy esy_solve_cudf exe] ****************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Apply esy permissions] ******************************************************************************************************************************************************************
+ok: [localhost] => (item=/usr/local/lib/esy/lib/default/bin/esy.exe)
+ok: [localhost] => (item=/usr/local/lib/esy/lib/default/esy-build-package/bin/esyBuildPackageCommand.exe)
+ok: [localhost] => (item=/usr/local/lib/esy/lib/default/esy-build-package/bin/esyRewritePrefixCommand.exe)
+
+TASK [linux/openenclave : Create esy symbolic links] **************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Cleanup esy installation] ***************************************************************************************************************************************************************
+changed: [localhost] => (item=esy-release)
+changed: [localhost] => (item=esy-solve-cudf-release)
+
+TASK [linux/openenclave : Install CMake 3.13.1] *******************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/openenclave : Create CMake symbolic links] ************************************************************************************************************************************************************
+ok: [localhost] => (item=ccmake)
+ok: [localhost] => (item=cmake)
+ok: [localhost] => (item=cpack)
+ok: [localhost] => (item=ctest)
+
+TASK [linux/intel : Include distribution vars] ********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/intel : Include distribution release specific vars] ***************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/intel : Install the dkms package] *********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/intel : Populate service facts] ***********************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/intel : Ensure aesmd service stopped] *****************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [linux/intel : Download Intel SGX DCAP Driver] ***************************************************************************************************************************************************************
+skipping: [localhost]
+
+TASK [linux/intel : Download Intel SGX1 Driver] *******************************************************************************************************************************************************************
+ok: [localhost]
+
+TASK [linux/intel : Install the Intel SGX DCAP Driver] ************************************************************************************************************************************************************
+fatal: [localhost]: FAILED! => {"changed": true, "cmd": ["/tmp/sgx_linux_x64_driver.bin"], "delta": "0:00:03.412127", "end": "2020-02-05 22:41:31.205975", "msg": "non-zero return code", "rc": 3, "start": "2020-02-05 22:41:27.793848", "stderr": "", "stderr_lines": [], "stdout": "Unpacking Intel SGX Driver ... done.\nVerifying the integrity of the install package ... done.\nInstalling Intel SGX Driver ...\n/tmp/sgx-driver-nas7FY ~/repos/openenclave/scripts/ansible\ninstall -d /opt/intel/sgxdriver/package\ninstall -d /opt/intel/sgxdriver/scripts\ninstall package/* /opt/intel/sgxdriver/package\ninstall scripts/* /opt/intel/sgxdriver/scripts\n~/repos/openenclave/scripts/ansible\n/opt/intel/sgxdriver/package ~/repos/openenclave/scripts/ansible\nmake -C /lib/modules/5.0.0-23-generic/build M=/opt/intel/sgxdriver/package modules\nmake[1]: Entering directory '/usr/src/linux-headers-5.0.0-23-generic'\n  CC [M]  /opt/intel/sgxdriver/package/sgx_main.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_page_cache.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_ioctl.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_vma.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_util.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_encl.o\n  CC [M]  /opt/intel/sgxdriver/package/sgx_encl2.o\n  LD [M]  /opt/intel/sgxdriver/package/isgx.o\n  Building modules, stage 2.\n  MODPOST 1 modules\n  CC      /opt/intel/sgxdriver/package/isgx.mod.o\n  LD [M]  /opt/intel/sgxdriver/package/isgx.ko\nmake[1]: Leaving directory '/usr/src/linux-headers-5.0.0-23-generic'", "stdout_lines": ["Unpacking Intel SGX Driver ... done.", "Verifying the integrity of the install package ... done.", "Installing Intel SGX Driver ...", "/tmp/sgx-driver-nas7FY ~/repos/openenclave/scripts/ansible", "install -d /opt/intel/sgxdriver/package", "install -d /opt/intel/sgxdriver/scripts", "install package/* /opt/intel/sgxdriver/package", "install scripts/* /opt/intel/sgxdriver/scripts", "~/repos/openenclave/scripts/ansible", "/opt/intel/sgxdriver/package ~/repos/openenclave/scripts/ansible", "make -C /lib/modules/5.0.0-23-generic/build M=/opt/intel/sgxdriver/package modules", "make[1]: Entering directory '/usr/src/linux-headers-5.0.0-23-generic'", "  CC [M]  /opt/intel/sgxdriver/package/sgx_main.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_page_cache.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_ioctl.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_vma.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_util.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_encl.o", "  CC [M]  /opt/intel/sgxdriver/package/sgx_encl2.o", "  LD [M]  /opt/intel/sgxdriver/package/isgx.o", "  Building modules, stage 2.", "  MODPOST 1 modules", "  CC      /opt/intel/sgxdriver/package/isgx.mod.o", "  LD [M]  /opt/intel/sgxdriver/package/isgx.ko", "make[1]: Leaving directory '/usr/src/linux-headers-5.0.0-23-generic'"]}
+
+NO MORE HOSTS LEFT ************************************************************************************************************************************************************************************************
+
+PLAY RECAP ********************************************************************************************************************************************************************************************************
+localhost                  : ok=31   changed=6    unreachable=0    failed=1    skipped=2    rescued=0    ignored=0   
+```
