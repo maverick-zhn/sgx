@@ -557,3 +557,30 @@ source /home/spalacio/repos/linux-sgx-driver/sgxsdk/environment
 ➜  linux-sgx-driver git:(master) ✗ source /home/spalacio/repos/linux-sgx-driver/sgxsdk/environment
 ```
 
+### checking aesm service
+
+```
+➜  linux-sgx-driver git:(master) ✗ lsmod | grep sgx  
+isgx                   53248  2
+➜  linux-sgx-driver git:(master) ✗ service aesmd status
+● aesmd.service - Intel(R) Architectural Enclave Service Manager
+   Loaded: loaded (/lib/systemd/system/aesmd.service; enabled; vendor preset: enabled)
+   Active: active (running) since Thu 2020-02-13 11:55:42 EST; 13min ago
+  Process: 24950 ExecStart=/opt/intel/sgx-aesm-service/aesm/aesm_service (code=exited, status=0/SUCCESS)
+  Process: 24949 ExecStartPre=/bin/chmod 0750 /var/opt/aesmd/ (code=exited, status=0/SUCCESS)
+  Process: 24948 ExecStartPre=/bin/chown -R aesmd:aesmd /var/opt/aesmd/ (code=exited, status=0/SUCCESS)
+  Process: 24945 ExecStartPre=/bin/chmod 0755 /var/run/aesmd/ (code=exited, status=0/SUCCESS)
+  Process: 24944 ExecStartPre=/bin/chown -R aesmd:aesmd /var/run/aesmd/ (code=exited, status=0/SUCCESS)
+  Process: 24943 ExecStartPre=/bin/mkdir -p /var/run/aesmd/ (code=exited, status=0/SUCCESS)
+  Process: 24938 ExecStartPre=/opt/intel/sgx-aesm-service/aesm/linksgx.sh (code=exited, status=0/SUCCESS)
+ Main PID: 24951 (aesm_service)
+    Tasks: 4 (limit: 4915)
+   CGroup: /system.slice/aesmd.service
+           └─24951 /opt/intel/sgx-aesm-service/aesm/aesm_service
+
+Feb 13 11:55:42 maverickzhn01 systemd[1]: Starting Intel(R) Architectural Enclave Service Manager...
+Feb 13 11:55:42 maverickzhn01 systemd[1]: Started Intel(R) Architectural Enclave Service Manager.
+Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White List update requested
+Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: The server sock is 0x55f977fc6570
+Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White list update request successful for Version: 69
+```
