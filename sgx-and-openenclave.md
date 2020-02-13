@@ -1,6 +1,12 @@
 # Installing Intel SGX Driver
 https://github.com/intel/linux-sgx-driver
 
+I have installed the driver then the psw and lastly the sdk. Follow the documents provided. 
+
+I downloaded the SDK from
+* https://download.01.org/intel-sgx/sgx-linux/2.8/distro/ubuntu18.04-server/
+* https://software.intel.com/en-us/sgx/sdk
+
 ```
 ➜  repos git clone https://github.com/intel/linux-sgx-driver.git
 Cloning into 'linux-sgx-driver'...
