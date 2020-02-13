@@ -1,0 +1,108 @@
+# Installing Intel SGX Driver
+
+```
+➜  repos git clone https://github.com/intel/linux-sgx-driver.git
+Cloning into 'linux-sgx-driver'...
+remote: Enumerating objects: 28, done.
+remote: Counting objects: 100% (28/28), done.
+remote: Compressing objects: 100% (21/21), done.
+remote: Total 446 (delta 11), reused 19 (delta 7), pack-reused 418
+Receiving objects: 100% (446/446), 265.23 KiB | 4.08 MiB/s, done.
+Resolving deltas: 100% (247/247), done.
+➜  repos cd linux-sgx-driver 
+➜  linux-sgx-driver git:(master) clear
+
+➜  linux-sgx-driver git:(master) lsa
+total 172K
+drwxr-xr-x 4 spalacio spalacio 4.0K Feb 13 11:36 .
+drwxr-xr-x 6 spalacio spalacio 4.0K Feb 13 11:36 ..
+drwxr-xr-x 8 spalacio spalacio 4.0K Feb 13 11:36 .git
+-rw-r--r-- 1 spalacio spalacio   56 Feb 13 11:36 .gitignore
+drwxr-xr-x 2 spalacio spalacio 4.0K Feb 13 11:36 inker2ext
+-rw-r--r-- 1 spalacio spalacio 2.4K Feb 13 11:36 License.txt
+-rw-r--r-- 1 spalacio spalacio  540 Feb 13 11:36 Makefile
+-rw-r--r-- 1 spalacio spalacio 4.8K Feb 13 11:36 README.md
+-rw-r--r-- 1 spalacio spalacio 6.9K Feb 13 11:36 sgx_arch.h
+-rw-r--r-- 1 spalacio spalacio 5.9K Feb 13 11:36 sgx_asm.h
+-rw-r--r-- 1 spalacio spalacio  13K Feb 13 11:36 sgx_encl2.c
+-rw-r--r-- 1 spalacio spalacio  24K Feb 13 11:36 sgx_encl.c
+-rw-r--r-- 1 spalacio spalacio 8.8K Feb 13 11:36 sgx.h
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_ioctl.c
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_main.c
+-rw-r--r-- 1 spalacio spalacio  15K Feb 13 11:36 sgx_page_cache.c
+-rw-r--r-- 1 spalacio spalacio 5.3K Feb 13 11:36 sgx_user.h
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_util.c
+-rw-r--r-- 1 spalacio spalacio 7.2K Feb 13 11:36 sgx_vma.c
+➜  linux-sgx-driver git:(master) make
+make -C /lib/modules/5.3.0-28-generic/build M=/home/spalacio/repos/linux-sgx-driver modules
+make[1]: Entering directory '/usr/src/linux-headers-5.3.0-28-generic'
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_main.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_page_cache.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_ioctl.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_vma.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_util.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_encl.o
+  CC [M]  /home/spalacio/repos/linux-sgx-driver/sgx_encl2.o
+  LD [M]  /home/spalacio/repos/linux-sgx-driver/isgx.o
+  Building modules, stage 2.
+  MODPOST 1 modules
+  CC      /home/spalacio/repos/linux-sgx-driver/isgx.mod.o
+  LD [M]  /home/spalacio/repos/linux-sgx-driver/isgx.ko
+make[1]: Leaving directory '/usr/src/linux-headers-5.3.0-28-generic'
+➜  linux-sgx-driver git:(master) ✗ lsa
+total 824K
+drwxr-xr-x 4 spalacio spalacio 4.0K Feb 13 11:36 .
+drwxr-xr-x 6 spalacio spalacio 4.0K Feb 13 11:36 ..
+drwxr-xr-x 8 spalacio spalacio 4.0K Feb 13 11:36 .git
+-rw-r--r-- 1 spalacio spalacio   56 Feb 13 11:36 .gitignore
+drwxr-xr-x 2 spalacio spalacio 4.0K Feb 13 11:36 inker2ext
+-rw-r--r-- 1 spalacio spalacio  77K Feb 13 11:36 isgx.ko
+-rw-r--r-- 1 spalacio spalacio  294 Feb 13 11:36 .isgx.ko.cmd
+-rw-r--r-- 1 spalacio spalacio  351 Feb 13 11:36 isgx.mod
+-rw-r--r-- 1 spalacio spalacio  679 Feb 13 11:36 isgx.mod.c
+-rw-r--r-- 1 spalacio spalacio  470 Feb 13 11:36 .isgx.mod.cmd
+-rw-r--r-- 1 spalacio spalacio 2.9K Feb 13 11:36 isgx.mod.o
+-rw-r--r-- 1 spalacio spalacio  31K Feb 13 11:36 .isgx.mod.o.cmd
+-rw-r--r-- 1 spalacio spalacio  77K Feb 13 11:36 isgx.o
+-rw-r--r-- 1 spalacio spalacio  500 Feb 13 11:36 .isgx.o.cmd
+-rw-r--r-- 1 spalacio spalacio 2.4K Feb 13 11:36 License.txt
+-rw-r--r-- 1 spalacio spalacio  540 Feb 13 11:36 Makefile
+-rw-r--r-- 1 spalacio spalacio   46 Feb 13 11:36 modules.order
+-rw-r--r-- 1 spalacio spalacio    0 Feb 13 11:36 Module.symvers
+-rw-r--r-- 1 spalacio spalacio 4.8K Feb 13 11:36 README.md
+-rw-r--r-- 1 spalacio spalacio 6.9K Feb 13 11:36 sgx_arch.h
+-rw-r--r-- 1 spalacio spalacio 5.9K Feb 13 11:36 sgx_asm.h
+-rw-r--r-- 1 spalacio spalacio  13K Feb 13 11:36 sgx_encl2.c
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_encl2.o
+-rw-r--r-- 1 spalacio spalacio  38K Feb 13 11:36 .sgx_encl2.o.cmd
+-rw-r--r-- 1 spalacio spalacio  24K Feb 13 11:36 sgx_encl.c
+-rw-r--r-- 1 spalacio spalacio  25K Feb 13 11:36 sgx_encl.o
+-rw-r--r-- 1 spalacio spalacio  45K Feb 13 11:36 .sgx_encl.o.cmd
+-rw-r--r-- 1 spalacio spalacio 8.8K Feb 13 11:36 sgx.h
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_ioctl.c
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_ioctl.o
+-rw-r--r-- 1 spalacio spalacio  45K Feb 13 11:36 .sgx_ioctl.o.cmd
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_main.c
+-rw-r--r-- 1 spalacio spalacio  12K Feb 13 11:36 sgx_main.o
+-rw-r--r-- 1 spalacio spalacio  49K Feb 13 11:36 .sgx_main.o.cmd
+-rw-r--r-- 1 spalacio spalacio  15K Feb 13 11:36 sgx_page_cache.c
+-rw-r--r-- 1 spalacio spalacio  16K Feb 13 11:36 sgx_page_cache.o
+-rw-r--r-- 1 spalacio spalacio  39K Feb 13 11:36 .sgx_page_cache.o.cmd
+-rw-r--r-- 1 spalacio spalacio 5.3K Feb 13 11:36 sgx_user.h
+-rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_util.c
+-rw-r--r-- 1 spalacio spalacio  14K Feb 13 11:36 sgx_util.o
+-rw-r--r-- 1 spalacio spalacio  45K Feb 13 11:36 .sgx_util.o.cmd
+-rw-r--r-- 1 spalacio spalacio 7.2K Feb 13 11:36 sgx_vma.c
+-rw-r--r-- 1 spalacio spalacio 9.0K Feb 13 11:36 sgx_vma.o
+-rw-r--r-- 1 spalacio spalacio  45K Feb 13 11:36 .sgx_vma.o.cmd
+➜  linux-sgx-driver git:(master) ✗ sudo mkdir -p "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"
+➜  linux-sgx-driver git:(master) ✗ sudo cp isgx.ko "/lib/modules/"`uname -r`"/kernel/drivers/intel/sgx"
+➜  linux-sgx-driver git:(master) ✗ sudo sh -c "cat /etc/modules | grep -Fxq isgx || echo isgx >> /etc/modules"
+➜  linux-sgx-driver git:(master) ✗ sudo /sbin/depmod
+➜  linux-sgx-driver git:(master) ✗ sudo /sbin/modprobe isgx
+➜  linux-sgx-driver git:(master) ✗ lsmod | grep sgx
+isgx                   53248  0
+➜  linux-sgx-driver git:(master) ✗ 
+
+```
+
