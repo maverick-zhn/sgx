@@ -592,6 +592,7 @@ Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White list update requ
 ```
 
 ### Install Docker
+Followed this document: https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04
 ```
 ➜  repos sudo apt-get update
 [sudo] password for spalacio: 
