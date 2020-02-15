@@ -590,3 +590,121 @@ Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White List update requ
 Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: The server sock is 0x55f977fc6570
 Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White list update request successful for Version: 69
 ```
+
+### Install Docker
+```
+➜  repos sudo apt-get update
+[sudo] password for spalacio: 
+Hit:1 http://apt.llvm.org/bionic llvm-toolchain-bionic-7 InRelease
+Ign:2 http://dl.google.com/linux/chrome/deb stable InRelease                                                                                                                                             
+Hit:3 http://us.archive.ubuntu.com/ubuntu bionic InRelease                                                                                                                                                        
+Hit:4 https://packages.microsoft.com/ubuntu/18.04/prod bionic InRelease                                                                                                                                           
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]                                                                                                
+Get:6 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]                                                                           
+Hit:7 https://download.sublimetext.com apt/stable/ InRelease                                                                               
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]                                                             
+Hit:9 http://dl.google.com/linux/chrome/deb stable Release                                                             
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 DEP-11 Metadata [294 kB]     
+Get:12 http://us.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 48x48 Icons [73.8 kB]              
+Get:13 http://us.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 64x64 Icons [140 kB]
+Get:14 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 DEP-11 Metadata [264 kB]                
+Get:15 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 48x48 Icons [205 kB]                        
+Get:16 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 64x64 Icons [454 kB]                   
+Get:17 http://us.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 DEP-11 Metadata [2,464 B]             
+Get:18 http://us.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [8,280 B]
+Get:19 http://security.ubuntu.com/ubuntu bionic-security/main amd64 DEP-11 Metadata [38.5 kB]                            
+Hit:20 https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic InRelease                         
+Get:21 http://security.ubuntu.com/ubuntu bionic-security/main DEP-11 48x48 Icons [17.6 kB]
+Get:22 http://security.ubuntu.com/ubuntu bionic-security/main DEP-11 64x64 Icons [41.5 kB]
+Get:23 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 DEP-11 Metadata [42.1 kB]
+Get:24 http://security.ubuntu.com/ubuntu bionic-security/universe DEP-11 48x48 Icons [16.4 kB]
+Get:25 http://security.ubuntu.com/ubuntu bionic-security/universe DEP-11 64x64 Icons [111 kB]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 DEP-11 Metadata [2,464 B]
+Fetched 1,963 kB in 1s (1,602 kB/s)                                       
+Reading package lists... Done
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+➜  repos sudo apt-get remove docker docker-engine docker.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package 'docker-engine' is not installed, so not removed
+Package 'docker' is not installed, so not removed
+Package 'docker.io' is not installed, so not removed
+The following packages were automatically installed and are no longer required:
+  gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1 libgconf-2-4 libindicator7 ubuntu-web-launchers
+Use 'sudo apt autoremove' to remove them.
+0 upgraded, 0 newly installed, 0 to remove and 4 not upgraded.
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+➜  repos sudo apt install docker.io
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1 libgconf-2-4 libindicator7 ubuntu-web-launchers
+Use 'sudo apt autoremove' to remove them.
+The following additional packages will be installed:
+  bridge-utils cgroupfs-mount containerd pigz runc ubuntu-fan
+Suggested packages:
+  aufs-tools btrfs-progs debootstrap docker-doc rinse zfs-fuse | zfsutils
+The following NEW packages will be installed:
+  bridge-utils cgroupfs-mount containerd docker.io pigz runc ubuntu-fan
+0 upgraded, 7 newly installed, 0 to remove and 4 not upgraded.
+Need to get 52.2 MB of archives.
+After this operation, 257 MB of additional disk space will be used.
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Do you want to continue? [Y/n] y
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 pigz amd64 2.4-1 [57.4 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 bridge-utils amd64 1.5-15ubuntu1 [30.1 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 cgroupfs-mount all 1.4 [6,320 B]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 runc amd64 1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.2 [1,903 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 containerd amd64 1.2.6-0ubuntu1~18.04.2 [19.4 MB]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 docker.io amd64 18.09.7-0ubuntu1~18.04.4 [30.7 MB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 ubuntu-fan all 0.12.10 [34.7 kB]
+Fetched 52.2 MB in 3s (15.0 MB/s)     
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Preconfiguring packages ...
+Selecting previously unselected package pigz.
+(Reading database ... 187317 files and directories currently installed.)
+Preparing to unpack .../0-pigz_2.4-1_amd64.deb ...
+Unpacking pigz (2.4-1) ...
+Selecting previously unselected package bridge-utils.
+Preparing to unpack .../1-bridge-utils_1.5-15ubuntu1_amd64.deb ...
+Unpacking bridge-utils (1.5-15ubuntu1) ...
+Selecting previously unselected package cgroupfs-mount.
+Preparing to unpack .../2-cgroupfs-mount_1.4_all.deb ...
+Unpacking cgroupfs-mount (1.4) ...
+Selecting previously unselected package runc.
+Preparing to unpack .../3-runc_1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.2_amd64.deb ...
+Unpacking runc (1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.2) ...
+Selecting previously unselected package containerd.
+Preparing to unpack .../4-containerd_1.2.6-0ubuntu1~18.04.2_amd64.deb ...
+Unpacking containerd (1.2.6-0ubuntu1~18.04.2) ...
+Selecting previously unselected package docker.io.
+Preparing to unpack .../5-docker.io_18.09.7-0ubuntu1~18.04.4_amd64.deb ...
+Unpacking docker.io (18.09.7-0ubuntu1~18.04.4) ...
+Selecting previously unselected package ubuntu-fan.
+Preparing to unpack .../6-ubuntu-fan_0.12.10_all.deb ...
+Unpacking ubuntu-fan (0.12.10) ...
+Setting up runc (1.0.0~rc7+git20190403.029124da-0ubuntu1~18.04.2) ...
+Setting up cgroupfs-mount (1.4) ...
+Setting up containerd (1.2.6-0ubuntu1~18.04.2) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/containerd.service → /lib/systemd/system/containerd.service.
+Setting up bridge-utils (1.5-15ubuntu1) ...
+Setting up ubuntu-fan (0.12.10) ...
+Created symlink /etc/systemd/system/multi-user.target.wants/ubuntu-fan.service → /lib/systemd/system/ubuntu-fan.service.
+Setting up pigz (2.4-1) ...
+Setting up docker.io (18.09.7-0ubuntu1~18.04.4) ...
+Adding group `docker' (GID 127) ...
+Done.
+Created symlink /etc/systemd/system/sockets.target.wants/docker.socket → /lib/systemd/system/docker.socket.
+Processing triggers for systemd (237-3ubuntu10.38) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+ureadahead will be reprofiled on next reboot
+➜  repos sudo systemctl start docker
+➜  repos sudo systemctl enable docker
+Synchronizing state of docker.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable docker
+➜  repos docker --version
+Docker version 18.09.7, build 2d0083d
+```
