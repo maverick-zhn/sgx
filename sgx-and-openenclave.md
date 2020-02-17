@@ -709,3 +709,73 @@ Executing: /lib/systemd/systemd-sysv-install enable docker
 ➜  repos docker --version
 Docker version 18.09.7, build 2d0083d
 ```
+
+### Installing Insomnia
+```
+ oada-srvc-docker git:(master) echo "deb https://dl.bintray.com/getinsomnia/Insomnia /" \
+    | sudo tee -a /etc/apt/sources.list.d/insomnia.list
+[sudo] password for spalacio: 
+deb https://dl.bintray.com/getinsomnia/Insomnia /
+➜  oada-srvc-docker git:(master) wget --quiet -O - https://insomnia.rest/keys/debian-public.key.asc \
+    | sudo apt-key add -
+OK
+➜  oada-srvc-docker git:(master) sudo apt-get update
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Ign:2 http://dl.google.com/linux/chrome/deb stable InRelease                                            
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]                            
+Get:4 http://security.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]                             
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]                          
+Hit:6 https://packages.microsoft.com/ubuntu/18.04/prod bionic InRelease                                 
+Hit:7 https://download.sublimetext.com apt/stable/ InRelease                                            
+Ign:8 https://dl.bintray.com/getinsomnia/Insomnia  InRelease                                            
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 DEP-11 Metadata [294 kB]            
+Get:10 https://dl.bintray.com/getinsomnia/Insomnia  Release [815 B]                                     
+Hit:11 http://dl.google.com/linux/chrome/deb stable Release                                             
+Get:12 http://us.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 48x48 Icons [73.8 kB]             
+Get:13 http://us.archive.ubuntu.com/ubuntu bionic-updates/main DEP-11 64x64 Icons [140 kB]              
+Get:14 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 DEP-11 Metadata [264 kB]       
+Get:15 https://dl.bintray.com/getinsomnia/Insomnia  Release.gpg [821 B]                                 
+Get:16 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 48x48 Icons [195 kB]          
+Get:17 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe DEP-11 64x64 Icons [440 kB]          
+Get:18 http://us.archive.ubuntu.com/ubuntu bionic-updates/multiverse amd64 DEP-11 Metadata [2,464 B]    
+Get:19 http://us.archive.ubuntu.com/ubuntu bionic-backports/universe amd64 DEP-11 Metadata [8,280 B]    
+Hit:21 http://apt.llvm.org/bionic llvm-toolchain-bionic-7 InRelease                                     
+Get:22 https://dl.bintray.com/getinsomnia/Insomnia  Packages [3,655 B]          
+Get:23 http://security.ubuntu.com/ubuntu bionic-security/main amd64 DEP-11 Metadata [38.5 kB]
+Get:24 http://security.ubuntu.com/ubuntu bionic-security/main DEP-11 48x48 Icons [17.6 kB]
+Get:25 http://security.ubuntu.com/ubuntu bionic-security/main DEP-11 64x64 Icons [41.5 kB]
+Get:26 http://security.ubuntu.com/ubuntu bionic-security/universe amd64 DEP-11 Metadata [42.1 kB]
+Get:27 http://security.ubuntu.com/ubuntu bionic-security/universe DEP-11 48x48 Icons [16.4 kB]
+Get:28 http://security.ubuntu.com/ubuntu bionic-security/universe DEP-11 64x64 Icons [113 kB]
+Get:29 http://security.ubuntu.com/ubuntu bionic-security/multiverse amd64 DEP-11 Metadata [2,464 B]
+Hit:30 https://download.01.org/intel-sgx/sgx_repo/ubuntu bionic InRelease                    
+Fetched 1,947 kB in 1s (1,460 kB/s)
+Reading package lists... Done
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+➜  oada-srvc-docker git:(master) sudo apt-get install insomnia
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following packages were automatically installed and are no longer required:
+  gconf-service gconf-service-backend gconf2 gconf2-common gir1.2-geocodeglib-1.0 libappindicator1
+  libgconf-2-4 libindicator7 ubuntu-web-launchers
+Use 'sudo apt autoremove' to remove them.
+The following NEW packages will be installed:
+  insomnia
+0 upgraded, 1 newly installed, 0 to remove and 4 not upgraded.
+Need to get 45.5 MB of archives.
+After this operation, 211 MB of additional disk space will be used.
+Get:1 https://dl.bintray.com/getinsomnia/Insomnia  insomnia 7.1.0 [45.5 MB]
+Fetched 45.5 MB in 23s (2,019 kB/s)                                                                     
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+Selecting previously unselected package insomnia.
+(Reading database ... 187706 files and directories currently installed.)
+Preparing to unpack .../insomnia_7.1.0_amd64.deb ...
+Unpacking insomnia (7.1.0) ...
+Setting up insomnia (7.1.0) ...
+Processing triggers for hicolor-icon-theme (0.17-2) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
+Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
+N: Ignoring file 'intel-sgx.l-ist' in directory '/etc/apt/sources.list.d/' as it has an invalid filename extension
+```
