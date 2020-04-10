@@ -597,7 +597,7 @@ Installing collected packages: PyYAML, six, pycparser, cffi, cryptography, Marku
 Successfully installed MarkupSafe-1.1.1 PyYAML-5.3 ansible-2.8.2 certifi-2019.11.28 cffi-1.13.2 cryptography-2.8 idna-2.8 jinja2-2.11.1 ntlm-auth-1.4.0 pycparser-2.19 pywinrm-0.2.1 requests-2.22.0 requests-ntlm-1.1.0 six-1.14.0 urllib3-1.25.8 xmltodict-0.12.0
 ```
 
-###Error
+### Error
 ```
 ➜  openenclave git:(master) ✗ sudo ansible-playbook scripts/ansible/oe-contributors-setup-sgx1.yml
  [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
