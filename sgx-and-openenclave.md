@@ -603,6 +603,194 @@ Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: The server sock is 0x55f977fc
 Feb 13 11:55:42 maverickzhn01 aesm_service[24951]: [ADMIN]White list update request successful for Version: 69
 ```
 
+### Fixing OE_PLATFORM_ERROR
+```
+➜  build git:(master) ✗ cmake ..
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Looking for crypto library - found
+-- Looking for dl library - found
+VERBOSE-- Looking for sgx_enclave_common library - found
+CMake Warning at /opt/openenclave/lib/openenclave/cmake/openenclave-config.cmake:139 (message):
+  -- Looking for sgx_dcap_ql library - not found.  Attestations based on
+  quotes would not function without the quote provider.
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (find_package)
+
+
+-- Performing Test OE_SPECTRE_MITIGATION_C_FLAGS_SUPPORTED
+-- Performing Test OE_SPECTRE_MITIGATION_C_FLAGS_SUPPORTED - Failed
+-- Performing Test OE_SPECTRE_MITIGATION_CXX_FLAGS_SUPPORTED
+-- Performing Test OE_SPECTRE_MITIGATION_CXX_FLAGS_SUPPORTED - Failed
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/spalacio/repos/openenclave/samples/helloworld/build
+➜  build git:(master) ✗ make run
+[ 10%] Generating helloworld_u.h, helloworld_u.c, helloworld_args.h
+Generating edge routines for the Open Enclave SDK.
+Success.
+Scanning dependencies of target helloworld_host
+[ 20%] Building C object host/CMakeFiles/helloworld_host.dir/host.c.o
+[ 30%] Building C object host/CMakeFiles/helloworld_host.dir/helloworld_u.c.o
+[ 40%] Linking C executable helloworld_host
+[ 40%] Built target helloworld_host
+[ 50%] Generating helloworld_t.h, helloworld_t.c, helloworld_args.h
+Generating edge routines for the Open Enclave SDK.
+Success.
+Scanning dependencies of target enclave
+[ 60%] Building C object enclave/CMakeFiles/enclave.dir/enc.c.o
+[ 70%] Building C object enclave/CMakeFiles/enclave.dir/helloworld_t.c.o
+[ 80%] Linking C executable enclave
+[ 80%] Built target enclave
+Scanning dependencies of target sign
+[ 90%] Generating private.pem, public.pem
+Generating RSA private key, 3072 bit long modulus (2 primes)
+........................................................................................................++++
+........................................++++
+e is 3 (0x03)
+writing RSA key
+[100%] Generating enclave/enclave.signed
+Created /home/spalacio/repos/openenclave/samples/helloworld/build/enclave/enclave.signed
+[100%] Built target sign
+Scanning dependencies of target run
+2020-04-10T19:43:54.783114Z [(H)ERROR] tid(0x7fb6b5b4fb80) | enclave_initialize failed (err=0x1) (oe_result_t=OE_PLATFORM_ERROR) [/home/spalacio/repos/openenclave/host/sgx/sgxload.c:oe_sgx_initialize_enclave:733]
+2020-04-10T19:43:54.783132Z [(H)ERROR] tid(0x7fb6b5b4fb80) | :OE_PLATFORM_ERROR [/home/spalacio/repos/openenclave/host/sgx/create.c:oe_sgx_build_enclave:660]
+2020-04-10T19:43:54.783375Z [(H)ERROR] tid(0x7fb6b5b4fb80) | :OE_PLATFORM_ERROR [/home/spalacio/repos/openenclave/host/sgx/create.c:oe_create_enclave:763]
+oe_create_helloworld_enclave(): result=21 (OE_PLATFORM_ERROR)
+CMakeFiles/run.dir/build.make:57: recipe for target 'CMakeFiles/run' failed
+make[3]: *** [CMakeFiles/run] Error 1
+CMakeFiles/Makefile2:143: recipe for target 'CMakeFiles/run.dir/all' failed
+make[2]: *** [CMakeFiles/run.dir/all] Error 2
+CMakeFiles/Makefile2:150: recipe for target 'CMakeFiles/run.dir/rule' failed
+make[1]: *** [CMakeFiles/run.dir/rule] Error 2
+Makefile:144: recipe for target 'run' failed
+make: *** [run] Error 2
+➜  build git:(master) ✗ pwd     
+/home/spalacio/repos/openenclave/samples/helloworld/build
+➜  build git:(master) ✗ cd ..
+➜  helloworld git:(master) ✗ lsa
+total 52K
+drwxr-xr-x  5 spalacio spalacio 4.0K Apr 10 15:43 .
+drwxr-xr-x 10 spalacio spalacio 4.0K Feb 17 13:38 ..
+drwxr-xr-x  5 spalacio spalacio 4.0K Apr 10 15:43 build
+-rw-r--r--  1 spalacio spalacio 1.1K Feb  5 21:49 CMakeLists.txt
+drwxr-xr-x  2 spalacio spalacio 4.0K Feb  8 20:16 enclave
+-rw-r--r--  1 spalacio spalacio  218 Feb  5 21:49 helloworld.edl
+drwxr-xr-x  2 spalacio spalacio 4.0K Feb  8 20:14 host
+-rw-r--r--  1 spalacio spalacio  366 Feb  5 21:49 Makefile
+-rw-r--r--  1 spalacio spalacio  20K Feb  5 21:49 README.md
+➜  helloworld git:(master) ✗ rm -rf
+➜  helloworld git:(master) ✗ lsa   
+total 52K
+drwxr-xr-x  5 spalacio spalacio 4.0K Apr 10 15:43 .
+drwxr-xr-x 10 spalacio spalacio 4.0K Feb 17 13:38 ..
+drwxr-xr-x  5 spalacio spalacio 4.0K Apr 10 15:43 build
+-rw-r--r--  1 spalacio spalacio 1.1K Feb  5 21:49 CMakeLists.txt
+drwxr-xr-x  2 spalacio spalacio 4.0K Feb  8 20:16 enclave
+-rw-r--r--  1 spalacio spalacio  218 Feb  5 21:49 helloworld.edl
+drwxr-xr-x  2 spalacio spalacio 4.0K Feb  8 20:14 host
+-rw-r--r--  1 spalacio spalacio  366 Feb  5 21:49 Makefile
+-rw-r--r--  1 spalacio spalacio  20K Feb  5 21:49 README.md
+➜  helloworld git:(master) ✗ rm -rf build 
+➜  helloworld git:(master) ✗ mkdir build
+➜  helloworld git:(master) ✗ cd build 
+➜  build git:(master) ✗ cmake ..
+-- The C compiler identification is GNU 7.5.0
+-- The CXX compiler identification is GNU 7.5.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Looking for pthread_create
+-- Looking for pthread_create - not found
+-- Looking for pthread_create in pthreads
+-- Looking for pthread_create in pthreads - not found
+-- Looking for pthread_create in pthread
+-- Looking for pthread_create in pthread - found
+-- Found Threads: TRUE  
+-- Looking for crypto library - found
+-- Looking for dl library - found
+VERBOSE-- Looking for sgx_enclave_common library - found
+CMake Warning at /opt/openenclave/lib/openenclave/cmake/openenclave-config.cmake:139 (message):
+  -- Looking for sgx_dcap_ql library - not found.  Attestations based on
+  quotes would not function without the quote provider.
+Call Stack (most recent call first):
+  CMakeLists.txt:8 (find_package)
+
+
+-- Performing Test OE_SPECTRE_MITIGATION_C_FLAGS_SUPPORTED
+-- Performing Test OE_SPECTRE_MITIGATION_C_FLAGS_SUPPORTED - Failed
+-- Performing Test OE_SPECTRE_MITIGATION_CXX_FLAGS_SUPPORTED
+-- Performing Test OE_SPECTRE_MITIGATION_CXX_FLAGS_SUPPORTED - Failed
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/spalacio/repos/openenclave/samples/helloworld/build
+➜  build git:(master) ✗ make run
+[ 10%] Generating helloworld_u.h, helloworld_u.c, helloworld_args.h
+Generating edge routines for the Open Enclave SDK.
+Success.
+Scanning dependencies of target helloworld_host
+[ 20%] Building C object host/CMakeFiles/helloworld_host.dir/host.c.o
+[ 30%] Building C object host/CMakeFiles/helloworld_host.dir/helloworld_u.c.o
+[ 40%] Linking C executable helloworld_host
+[ 40%] Built target helloworld_host
+[ 50%] Generating helloworld_t.h, helloworld_t.c, helloworld_args.h
+Generating edge routines for the Open Enclave SDK.
+Success.
+Scanning dependencies of target enclave
+[ 60%] Building C object enclave/CMakeFiles/enclave.dir/enc.c.o
+[ 70%] Building C object enclave/CMakeFiles/enclave.dir/helloworld_t.c.o
+[ 80%] Linking C executable enclave
+[ 80%] Built target enclave
+Scanning dependencies of target sign
+[ 90%] Generating private.pem, public.pem
+Generating RSA private key, 3072 bit long modulus (2 primes)
+......................................++++
+.................................................................................................................................................++++
+e is 3 (0x03)
+writing RSA key
+[100%] Generating enclave/enclave.signed
+Created /home/spalacio/repos/openenclave/samples/helloworld/build/enclave/enclave.signed
+[100%] Built target sign
+Scanning dependencies of target run
+Hello world from the enclave
+Enclave called into host to print: Hello World!
+[100%] Built target run
+
+```
+
+
 ### Install Docker
 Followed this document: https://phoenixnap.com/kb/how-to-install-docker-on-ubuntu-18-04
 ```
