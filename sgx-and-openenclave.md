@@ -40,6 +40,9 @@ drwxr-xr-x 2 spalacio spalacio 4.0K Feb 13 11:36 inker2ext
 -rw-r--r-- 1 spalacio spalacio 5.3K Feb 13 11:36 sgx_user.h
 -rw-r--r-- 1 spalacio spalacio  11K Feb 13 11:36 sgx_util.c
 -rw-r--r-- 1 spalacio spalacio 7.2K Feb 13 11:36 sgx_vma.c
+```
+### make
+```
 ➜  linux-sgx-driver git:(master) make
 make -C /lib/modules/5.3.0-28-generic/build M=/home/spalacio/repos/linux-sgx-driver modules
 make[1]: Entering directory '/usr/src/linux-headers-5.3.0-28-generic'
@@ -228,8 +231,9 @@ Processing triggers for desktop-file-utils (0.23-1ubuntu3.18.04.2) ...
 Processing triggers for install-info (6.5.0.dfsg.1-2) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
 Processing triggers for gnome-menus (3.13.3-11ubuntu1.1) ...
-➜  linux-sgx-driver git:(master) ✗ sudo yum update binutils
-sudo: yum: command not found
+```
+### installing libraries
+```
 ➜  linux-sgx-driver git:(master) ✗ sudo apt-get install libssl-dev libcurl4-openssl-dev protobuf-compiler libprotobuf-dev debhelper cmake reprepro
 Reading package lists... Done
 Building dependency tree       
@@ -355,6 +359,10 @@ Setting up dh-autoreconf (17) ...
 Setting up dh-strip-nondeterminism (0.040-1.1~build1) ...
 Processing triggers for libc-bin (2.27-3ubuntu1) ...
 Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+```
+
+### including repositories
+```
 ➜  linux-sgx-driver git:(master) ✗ pwd
 /home/spalacio/repos/linux-sgx-driver
 ➜  linux-sgx-driver git:(master) ✗ echo 'deb [arch=amd64] https://-download.01.org/intel-sgx/sgx_repo/ubuntubionic main' | sudo tee /etc/apt/sources.list.d/intel-sgx.l-ist
