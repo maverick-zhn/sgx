@@ -6,7 +6,6 @@ I use this reference to solve a big problem:
 https://stackoverflow.com/questions/16710047/usr-bin-ld-cannot-find-lnameofthelibrary/42339395
 
 
-
 ```
 ➜  osc_la git:(master) ✗ rm -rf build 
 ➜  osc_la git:(master) ✗ mkdir build && cd build
@@ -68,6 +67,10 @@ CMake Error at host/CMakeLists.txt:10 (find_package):
 -- Configuring incomplete, errors occurred!
 See also "/home/spalacio/repos/openenclave/samples/osc_la/build/CMakeFiles/CMakeOutput.log".
 See also "/home/spalacio/repos/openenclave/samples/osc_la/build/CMakeFiles/CMakeError.log".
+```
+
+## error fixed
+```
 ➜  build git:(master) ✗ vim /usr/lib/x86_64-linux-gnu/cmake/cpprestsdk-config.cmake
 ➜  build git:(master) ✗ echo $cpprestsdk
 
