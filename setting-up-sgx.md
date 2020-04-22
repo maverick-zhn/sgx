@@ -51,6 +51,19 @@ Now using node v10.1.0 (npm v5.6.0)
 Creating default alias: default -> node (-> v10.1.0)
 ```
 
+### Installing node update:
+```
+spalacio@maverickzhn01:~$ nvm install node
+Downloading and installing node v13.7.0...
+Downloading https://nodejs.org/dist/v13.7.0/node-v13.7.0-linux-x64.tar.xz...
+############################################################################################################################################################################################################ 100.0%
+Computing checksum with sha256sum
+Checksums matched!
+Now using node v13.7.0 (npm v6.13.6)
+Creating default alias: default -> node (-> v13.7.0)
+spalacio@maverickzhn01:~$ 
+```
+
 ## SGX
 
 
